@@ -1,5 +1,5 @@
-import { Flex, Input, Button } from "@chakra-ui/react";
-
+import { Flex, Button, Stack } from "@chakra-ui/react";
+import { Input } from "../components/Form/Input";
 
 export default function Home() {
     return (
@@ -19,17 +19,33 @@ export default function Home() {
                 borderRadius={8}
                 direction="column"
             >
-                <Input 
-                name="email" 
-                type="email" 
-                placeholder="email@login.com"
-                />
-                <Input name="password" mt={2} type="password" placeholder="*********" />
+                <Stack spacing={4}>
 
-                <Button mt={6} type="submit" colorScheme = "pink">
+                    <Input
+                        name="email"
+                        type="email"
+                        label="E-mail"
+                        placeholder="email@email.com"
+                    />
+
+                    <Input
+                        name="password"
+                        type="password"
+                        label="Senha"
+                        placeholder="***********"
+                    />
+
+                </Stack>
+
+
+
+
+                <Button mt={6} type="submit" colorScheme="pink" size="lg">
                     Entrar
                 </Button>
             </Flex>
         </Flex>
+
+
     )
 }
