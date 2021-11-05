@@ -1,8 +1,13 @@
 import { Flex, Button, Stack } from "@chakra-ui/react";
+import Head  from "next/head";
 import { Input } from "../components/Form/Input";
 
 export default function Home() {
     return (
+        <>
+        <Head>
+            <title>Dashgo | Login</title>
+        </Head>
         <Flex
             w="100vw"
             h="100vh"
@@ -45,6 +50,7 @@ export default function Home() {
                 </Button>
             </Flex>
         </Flex>
+        </>
 
 
     )
