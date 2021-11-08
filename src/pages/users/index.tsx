@@ -1,8 +1,8 @@
 import { Box, Flex, Heading, Icon, Button, Table, Thead, Tr, Th, Checkbox, Tbody, Td, Text } from '@chakra-ui/react';
 import { RiPencilLine, RiAddLine } from 'react-icons/ri';
 import { Header } from '../../components/Header';
-import { Pagination } from '../../components/Pagination/Index';
-import { Sidebar } from '../../components/Sidebar/Index';
+import { Pagination } from '../../components/Pagination';
+import { Sidebar } from '../../components/Sidebar';
 
 
 export default function UserList() {
@@ -46,7 +46,7 @@ export default function UserList() {
                                 </Td>
                                 <Td>
                                     <Box>
-                                        <Text fontWeigth="bold"> Antonio Nunes </Text>
+                                        <Text fontWeight="bold"> Antonio Nunes </Text>
                                         <Text fontSize="small" color="gray.300">antonio.nunes@squidgames.com</Text>
                                     </Box>
                                 </Td>

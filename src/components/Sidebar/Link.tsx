@@ -6,11 +6,12 @@ interface LinkProps {
     hoverColor?: string,
     icon?: ReactNode | any,
     title: string
+    href:string
 }
 
-export function Link({ hoverColor = "pink.400", icon, title }: LinkProps) {
+export function Link({ hoverColor = "pink.400", icon, title, href }: LinkProps) {
     return (
-        <ChakraLink display="flex" align="center" _hover={{ color: hoverColor }}>
+        <ChakraLink display="flex" align="center" _hover={{ color: hoverColor }} href={href}>
             {!!icon &&
                 <Icon as={icon} fontSize="20" />}
             <Text ml="4" fontWeight="medium">{title}</Text>
