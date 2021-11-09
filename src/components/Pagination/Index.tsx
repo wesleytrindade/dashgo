@@ -21,7 +21,7 @@ export function Pagination({ pages, activePage, itensPerPage = 10, totalItens }:
     function loadPaginator() {
         let paginators = [];
         for (let i = 0; i < pages; i++) {
-            paginators.push(<Paginator pageNumber={i === 0 ? 1 : i + 1} activePage={i === activePageState - 1} handleClickActivePage={handleActivePage} />)
+            paginators.push(<Paginator key={i} pageNumber={i === 0 ? 1 : i + 1} activePage={i === activePageState - 1} handleClickActivePage={handleActivePage} />)
         }
         return (
             <Stack

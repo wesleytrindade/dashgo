@@ -21,6 +21,7 @@ import { Pagination } from '../../components/Pagination';
 import { Sidebar } from '../../components/Sidebar';
 
 import Head from 'next/head';
+import Link from 'next/link';
 
 
 export default function UserList() {
@@ -37,16 +38,18 @@ export default function UserList() {
                 <Box flex="1" borderRadius={8} bg="gray.800" p="8">
                     <Flex mb="8" justify="space-between" align="center">
                         <Heading size="lg" fontWeight="normal">Usuários</Heading>
-                        <Button
-                            as="a"
-                            size="sm"
-                            fontSize="sm"
-                            colorScheme="pink"
-                            cursor="pointer"
-                            href="/users/create"
-                            leftIcon={<Icon as={RiAddLine} />}>
-                            Adicionar usuário
-                        </Button>
+                        <Link href="/users/create" passHref>
+                            <Button
+                                as="a"
+                                size="sm"
+                                fontSize="sm"
+                                colorScheme="pink"
+                                cursor="pointer"
+                                leftIcon={<Icon as={RiAddLine} />}>
+                                Adicionar usuário
+                            </Button>
+                        </Link>
+
                     </Flex>
 
                     <Table colorScheme="whiteAlpha">
@@ -85,7 +88,7 @@ export default function UserList() {
                                             colorScheme="purple"
                                             cursor="pointer"
                                             leftIcon={<Icon as={RiPencilLine} />}>
-
+                                            Editar
                                         </Button>}
                                 </Td>
                             </Tr>
