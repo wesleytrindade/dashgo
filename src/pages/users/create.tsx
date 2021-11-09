@@ -4,7 +4,6 @@ import { Input } from '../../components/Form/Input';
 import { Header } from '../../components/Header';
 import { Sidebar } from '../../components/Sidebar';
 
-
 export default function UserCreate() {
 
 
@@ -16,18 +15,18 @@ export default function UserCreate() {
             <Header />
             <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
                 <Sidebar />
-                <Box flex="1" borderRadius={8} bg="gray.800" p="8">
+                <Box flex="1" borderRadius={8} bg="gray.800" p={["6","8"]}>
 
                     <Heading size="lg" fontWeight="normal">Criar usuário</Heading>
                     <Divider my="6" borderColor="gray.700" />
 
                     <VStack spacing="8">
-                        <SimpleGrid minChildWidth="240px" spacing="8" w="100%">
+                        <SimpleGrid minChildWidth="240px" spacing={["6","8"]} w="100%">
                             <Input name="name" label="Nome completo" placeholder="Ex: Fulano da Silva" />
                             <Input name="email" type="email" label="E-mail" placeholder="Ex: email@email.com" />
                         </SimpleGrid>
 
-                        <SimpleGrid minChildWidth="240px" spacing="8" w="100%">
+                        <SimpleGrid minChildWidth="240px" spacing={["6","8"]} w="100%">
                             <Input name="password" type="password" label="Senha" placeholder="Digite a sua senha" />
                             <Input name="passwordconfirmation" type="password" label="Confirmação da senha" placeholder="Confirme a senha" />
                         </SimpleGrid>

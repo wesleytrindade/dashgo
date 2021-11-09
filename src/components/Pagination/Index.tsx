@@ -25,7 +25,7 @@ export function Pagination({ pages, activePage, itensPerPage = 10, totalItens }:
         }
         return (
             <Stack
-                direction="row"
+                direction={["column","row"]}
                 mt="8"
                 justify="space-between"
                 align="center"

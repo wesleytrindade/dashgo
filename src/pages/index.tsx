@@ -1,8 +1,11 @@
 import { Flex, Button, Stack } from "@chakra-ui/react";
 import Head  from "next/head";
+import { useRouter } from "next/router";
 import { Input } from "../components/Form/Input";
 
 export default function Home() {
+
+    const router = useRouter();
     return (
         <>
         <Head>
@@ -23,6 +26,7 @@ export default function Home() {
                 padding={8}
                 borderRadius={8}
                 direction="column"
+                
             >
                 <Stack spacing={4}>
 
@@ -45,7 +49,13 @@ export default function Home() {
 
 
 
-                <Button mt={6} type="submit" colorScheme="pink" size="lg">
+                <Button 
+                    as="a"
+                    mt={6} 
+                    href="/dashboard" 
+                    colorScheme="pink" 
+                    size="lg"
+                    >
                     Entrar
                 </Button>
             </Flex>
