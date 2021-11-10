@@ -22,6 +22,7 @@ import { Sidebar } from '../../components/Sidebar';
 
 import Head from 'next/head';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 
 export default function UserList() {
@@ -30,6 +31,13 @@ export default function UserList() {
         base: false,
         lg: true
     });
+
+    useEffect(() => {
+        fetch("http://localhost:3000/api/users")
+            .then(response => response.json())
+            .then(data => console.log(data))
+    }, []);
+    
     return (
         <Box>
             <Header />
