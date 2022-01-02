@@ -2,9 +2,9 @@ import { Button } from '@chakra-ui/react';
 interface PaginatorProps {
     pageNumber: number,
     activePage?: boolean,
-    handleClickActivePage:(valor:number)=>any
+    onPageChange:(valor:number)=>any
 }
-export function Paginator({ pageNumber, activePage = false, handleClickActivePage }:PaginatorProps) {
+export function Paginator({ pageNumber, activePage = false, onPageChange }:PaginatorProps) {
     if (activePage) {
         return (
             <Button
@@ -17,7 +17,7 @@ export function Paginator({ pageNumber, activePage = false, handleClickActivePag
                     bgColor:"pink.500",
                     cursor:"default"
                 }}
-                onClick={()=>{debugger; handleClickActivePage(pageNumber)}}
+                onClick={()=>{onPageChange(pageNumber)}}
             > {pageNumber}</Button>
         )
     }
@@ -31,7 +31,7 @@ export function Paginator({ pageNumber, activePage = false, handleClickActivePag
             _hover={{
                 bg:"gray.500"
             }}
-            onClick={()=>{debugger; handleClickActivePage(pageNumber)}}
+            onClick={()=>{onPageChange(pageNumber)}}
         >{ pageNumber}</Button >
     )
 }
