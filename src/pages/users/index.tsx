@@ -26,15 +26,18 @@ import Head from 'next/head';
 import NextLink from 'next/Link';
 import { useQuery } from 'react-query';
 import { api } from '../../services/api';
-import { useUsers } from '../../services/hooks/useUsers';
+import { getUsers, useUsers } from '../../services/hooks/useUsers';
 import { useState } from 'react';
 import { queryClient } from '../../services/queryClient';
+import { GetServerSideProps } from 'next';
 
 
-export default function UserList() {
+export default function UserList({user,totalCount}) {
 
-    const [activePage,setActivePage] = useState(1);
-    const { data, isLoading, isFetching, error } = useUsers(activePage);
+    const [activePage, setActivePage] = useState(1);
+    const { data, isLoading, isFetching, error } = useUsers(activePage, {
+        initialData: user
+    });
 
 
     const isWideVersion = useBreakpointValue({
@@ -42,8 +45,8 @@ export default function UserList() {
         lg: true
     });
 
-    async function prefetchUserDetails(user_id:string){
-        await queryClient.prefetchQuery(['user',user_id], async ()=>{
+    async function prefetchUserDetails(user_id: string) {
+        await queryClient.prefetchQuery(['user', user_id], async () => {
             const response = await api.get(`users/${user_id}`);
 
             return response.data;
@@ -107,7 +110,7 @@ export default function UserList() {
                                             </Td>
                                             <Td>
                                                 <Box>
-                                                    <Link color="purple.400" onMouseEnter={()=> prefetchUserDetails(user.id)}>{user.name} </Link>
+                                                    <Link color="purple.400" onMouseEnter={() => prefetchUserDetails(user.id)}>{user.name} </Link>
                                                     <Text fontSize="small" color="gray.300">{user.email}</Text>
                                                 </Box>
                                             </Td>
@@ -133,7 +136,7 @@ export default function UserList() {
                             </Table >
 
 
-                            <Pagination totalItens={data.totalCount} activePage={activePage} onPageChange={setActivePage}  />
+                            <Pagination totalItens={data.totalCount} activePage={activePage} onPageChange={setActivePage} />
 
                         </>
                     )}
@@ -145,4 +148,16 @@ export default function UserList() {
             </Head>
         </Box >
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+
+    const { users, totalCount } = await getUsers(1);
+
+    return {
+        props: {
+            users,
+            totalCount
+        }
+    }
 }
